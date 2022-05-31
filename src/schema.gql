@@ -1,0 +1,55 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Product {
+  p_id: Float!
+  p_name: String!
+  p_price: String!
+}
+
+type User {
+  id: Float!
+  email: String!
+  firstname: String!
+  lastname: String!
+  password: String!
+  products: [Product!]!
+}
+
+type LoginResponse {
+  accessToken: String!
+  user: User!
+}
+
+type Query {
+  User: [User!]!
+  product: [Product!]!
+}
+
+type Mutation {
+  Signup(signupAuthInput: SignupAuthInput!): User!
+  Login(loginAuthInput: LoginAuthInput!): LoginResponse!
+  createProduct(createProductInput: CreateProductInput!): Product!
+}
+
+input SignupAuthInput {
+  firstname: String!
+  lastname: String!
+  email: String!
+  password: String!
+  role: String!
+}
+
+input LoginAuthInput {
+  firstname: String
+  lastname: String
+  email: String!
+  password: String!
+  role: String
+}
+
+input CreateProductInput {
+  p_name: String!
+  p_price: String!
+}
